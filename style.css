@@ -1,57 +1,171 @@
-.container{
-    width: 300px;
-    margin: 100px auto  ;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-#login-title{
-    text-align: center;
-    margin-bottom: 20px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#login-button{
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
     width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
+    max-width: 400px;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fafafa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background-color: #fff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[type="text"]:invalid:not(:placeholder-shown),
+input[type="password"]:invalid:not(:placeholder-shown) {
+    border-color: #ff6b6b;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #667eea;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-#login-button:hover{
-    background-color: #2ad807;
+button:hover:not(:disabled) {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
 }
 
-#username, #password {
-    width: 80%;
-    
-    /* FIX: Use specific pixel or rem values for top/bottom and left/right padding */
-    padding: 3px 16px; /* 10px top/bottom, 16px left/right */
-    
-    font-size: 16px;
-    border: none; 
-    border-bottom: 2px solid #7e7d7db0; 
-    border-radius: 0px; 
-    outline: none;
-    background-color: transparent; 
-    color: #333333;
-    transition: all 0.3s ease; 
-    margin-bottom: 9px; 
+button:active:not(:disabled) {
+    transform: translateY(0);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;  
-    
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
-#forgot-password{
+a {
     display: block;
     text-align: center;
-    margin-top: 10px;
-    color: #4CAF50;
+    margin-top: 20px;
+    color: #667eea;
     text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.message {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+
+.message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+}
+
+/* Accessibility improvements */
+input:focus,
+button:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
 }

@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <h2 id="login-title">Login Page</h2>
         <form id="login-form">
-
-            
             <input type="text" id="username" placeholder="Username" required>
-            
             <input type="password" id="password" placeholder="Password" required>
-            <button type="submit" id="login-button" onclick="handleLogin()">Login</button>
-            <a href="register.html" id="forgot-password">Forgot Password?</a>
+            <button type="submit" id="login-button" disabled>Login</button>
+            <a href="register.html" id="register-link">Don't have an account? Register</a>
         </form>
+        <div id="message" class="message"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
